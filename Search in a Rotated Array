@@ -1,0 +1,37 @@
+class Solution
+{
+    int search(int A[], int l, int h, int key)
+    {
+      // Base cases
+        if (l > h) {
+            return -1; // Element not found
+        }
+
+        int mid = (l + h) / 2;
+
+        if (A[mid] == key) {
+            return mid; // Element found at the middle index
+        }
+
+        // Check if the left half is sorted
+        if (A[l] <= A[mid]) {
+            // Check if the key lies in the left half
+            if (key >= A[l] && key <= A[mid]) {
+                // Recur on the left half
+                return search(A, l, mid - 1, key);
+            }
+            // Key lies in the right half
+            return search(A, mid + 1, h, key);
+        }
+
+        // If the left half is not sorted, the right half must be sorted
+        // Check if the key lies in the right half
+        if (key >= A[mid] && key <= A[h]) {
+            // Recur on the right half
+            return search(A, mid + 1, h, key);
+        }
+
+        // Key lies in the left half
+        return search(A, l, mid - 1, key);
+    }
+}
