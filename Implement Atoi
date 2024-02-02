@@ -1,0 +1,16 @@
+
+
+//User function template for JAVA
+
+/*You are required to complete this method */
+class Solution
+{
+    int atoi(String s) {
+      try{
+          return Integer.valueOf(s);
+      }
+      catch(Exception e) {
+          return -1;
+      }
+    }
+}
