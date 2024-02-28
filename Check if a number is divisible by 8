@@ -1,0 +1,21 @@
+
+
+//User function Template for Java
+
+class Solution
+
+{
+    int DivisibleByEight(String s)
+    {
+        int l=s.length();
+        if(l>3)
+        {
+            int last3Digits=Integer.valueOf(s.substring(l-3));
+            if(last3Digits%8==0)
+                return 1;
+            return -1;
+        }
+        int num=Integer.valueOf(s);
+        return num%8==0?1:-1;
+    }
+}
